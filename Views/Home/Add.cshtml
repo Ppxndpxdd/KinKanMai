@@ -1,0 +1,37 @@
+﻿@model KinKanMai.Models.Menu;
+@{
+    ViewData["Title"] = "Save Data";
+}
+@{
+    Random rand = new Random();
+    int randomNumber = rand.Next(1, 100);
+    ViewBag.RandomNumber = randomNumber;
+}
+
+<h2 class="text-center">ADD</h2>
+<form method="POST" asp-controller="Home" asp-action="Add">
+    
+    <div class="form-group">
+        <label asp-for="MenuId"></label>
+        <input type="text" asp-for="MenuId" class="form-control" value="@ViewBag.RandomNumber"/>
+        <span asp-validation-for="CanteenName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CanteenName"></label>
+        <input type="text" asp-for="CanteenName" class="form-control" />
+        <span asp-validation-for="CanteenName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FoodName"></label>
+        <input type="text" asp-for="FoodName" class="form-control" />
+        <span asp-validation-for="FoodName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Cost"></label>
+        <input type="text" asp-for="Cost" class="form-control" />
+        <span asp-validation-for="Cost" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary my-2">Submit</button>
+</form>
