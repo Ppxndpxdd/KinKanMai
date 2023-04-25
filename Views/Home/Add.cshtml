@@ -2,10 +2,9 @@
 @{
     ViewData["Title"] = "Save Data";
 }
+
 @{
-    Random rand = new Random();
-    int randomNumber = rand.Next(1, 100);
-    ViewBag.RandomNumber = randomNumber;
+    Guid uniqueId = Guid.NewGuid();
 }
 
 <h2 class="text-center">ADD</h2>
@@ -13,14 +12,24 @@
     
     <div class="form-group">
         <label asp-for="MenuId"></label>
-        <input type="text" asp-for="MenuId" class="form-control" value="@ViewBag.RandomNumber"/>
+        <input type="text" asp-for="MenuId" class="form-control" value="@uniqueId.ToString()" readonly />
         <span asp-validation-for="CanteenName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
         <label asp-for="CanteenName"></label>
+        <select>
+            
+            <option value="">-- โปรดเลือก --</option>
+            <option value="ร้านเทคโนอินเตอร์ kmitl inter food">ร้านเทคโนอินเตอร์ kmitl inter food</option>
+            <option value="ร้านอินดรีส indris">ร้านอินดรีส indris</option>
+            <option value="ร้านไอเย็น i-yen" >ร้านไอเย็น i-yen </option>
+            <option value="ร้านพี่ฝน กาแฟสด&น้ำปั่น">ร้านพี่ฝน กาแฟสด&น้ำปั่น</option>
+           
+        </select>
+        @*<label asp-for="CanteenName"></label>
         <input type="text" asp-for="CanteenName" class="form-control" />
-        <span asp-validation-for="CanteenName" class="text-danger"></span>
+        <span asp-validation-for="CanteenName" class="text-danger"></span>*@
     </div>
     <div class="form-group">
         <label asp-for="FoodName"></label>

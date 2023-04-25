@@ -6,6 +6,7 @@ namespace KinKanMai.Models;
 
 public partial class Menu
 {
+
     public int MenuId { get; set; }
     public string CanteenName { get; set; } = null!;
 
